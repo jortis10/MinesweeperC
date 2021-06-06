@@ -59,14 +59,10 @@ Input init_input()
         input.key[i]=SDL_FALSE;
     }
     input.quit=0;
-    input.nbpassesontour=0;
-    input.retouraction=0;
     input.x=0;
     input.y=0;
     input.xrel=0;
     input.yrel=0;
-    input.xwheel=0;
-    input.ywheel=0;
 
     for(int i=0; i<6; i++)
     {
@@ -105,11 +101,6 @@ void updateEvent(Input *input)
         input->y = event.motion.y;
         input->xrel = event.motion.xrel;
         input->yrel = event.motion.yrel;
-    }
-    if(event.type == SDL_MOUSEWHEEL)
-    {
-        input->xwheel = event.wheel.x;
-        input->ywheel = event.wheel.y;
     }
     if(event.type == SDL_MOUSEBUTTONDOWN)
         input->mouse[event.button.button] = SDL_TRUE;
